@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super PDF Tools - All-in-One PDF Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: #e74c3c;
+    font-size: 2rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: #e74c3c;
+    background-color: #ffecec;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding: 3rem 0;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    max-width: 500px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+}
+
+.search-box button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #c0392b;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Tools */
+.featured-tools {
+    margin-bottom: 3rem;
+}
+
+.featured-tools h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fdeaea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.tool-icon i {
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.tool-card h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.tool-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* All Tools Section */
+.all-tools {
+    margin-bottom: 3rem;
+}
+
+.all-tools h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.tools-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.category {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.category-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.tool-item {
+    padding: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tool-item:hover {
+    background-color: #fdeaea;
+    color: #e74c3c;
+}
+
+/* Tool Workspace */
+.tool-workspace {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+}
+
+.workspace-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.workspace-header h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.workspace-header p {
+    color: #666;
+}
+
+.file-upload {
+    margin-bottom: 2rem;
+}
+
+.upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+    border-color: #e74c3c;
+    background-color: #fff9f9;
+}
+
+.upload-box i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.upload-box h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.upload-box p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+#file-input {
+    display: none;
+}
+
+.btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+.btn-primary {
+    background-color: #e74c3c;
+}
+
+.btn-primary:hover {
+    background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+.file-list {
+    display: none;
+    margin-top: 1rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.file-item i {
+    color: #e74c3c;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.file-info {
+    flex-grow: 1;
+}
+
+.file-info h4 {
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.file-info p {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.file-actions button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.tool-options {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.option-group {
+    margin-bottom: 1rem;
+}
+
+.option-group h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.option-row input[type="checkbox"],
+.option-row input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.option-row label {
+    font-size: 0.9rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.result-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0fff0;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.result-header {
+    margin-bottom: 1rem;
+}
+
+.result-header i {
+    font-size: 3rem;
+    color: #2ecc71;
+    margin-bottom: 1rem;
+}
+
+.result-header h3 {
+    color: #333;
+}
+
+.result-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    margin-bottom: 3rem;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 1rem;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* FAQ Section */
+.faq {
+    margin-bottom: 3rem;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.faq-items {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    color: #333;
+    font-size: 1rem;
+}
+
+.faq-question i {
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer p {
+    color: #666;
+    padding-bottom: 1.5rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 1.5rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 3rem 0 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #ecf0f1;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #e74c3c;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #bdc3c7;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e74c3c;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #1a252f;
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .search-box {
+        margin: 0 auto;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tools-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-file-pdf"></i>
+            <h1>Super PDF Tools</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active" data-section="home">Home</a></li>
+                <li><a href="#" data-section="all-tools">All Tools</a></li>
+                <li><a href="#" data-section="how-it-works">How It Works</a></li>
+                <li><a href="#" data-section="faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home-section">
+            <div class="hero-content">
+                <h2>Your Complete PDF Solution</h2>
+                <p>Merge, split, compress, convert, and more - all for free!</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search for a PDF tool...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x300" alt="PDF Tools Illustration">
+            </div>
+        </section>
+
+        <!-- Featured Tools -->
+        <section class="featured-tools">
+            <h2>Most Popular Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" data-tool="merge-pdf">
+                    <div class="tool-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3>Merge PDF</h3>
+                    <p>Combine multiple PDFs into one</p>
+                </div>
+                <div class="tool-card" data-tool="split-pdf">
+                    <div class="tool-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Split PDF</h3>
+                    <p>Extract pages or split by ranges</p>
+                </div>
+                <div class="tool-card" data-tool="compress-pdf">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                    <h3>Compress PDF</h3>
+                    <p>Reduce file size while keeping quality</p>
+                </div>
+                <div class="tool-card" data-tool="pdf-to-word">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3>PDF to Word</h3>
+                    <p>Convert PDFs to editable Word docs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Tools Section -->
+        <section class="all-tools" id="all-tools-section">
+            <h2>All PDF Tools</h2>
+            <div class="tools-categories">
+                <div class="category">
+                    <h3><i class="fas fa-object-group"></i> Combine & Organize</h3>
+                    <div class="category-tools">
+                        <div class="tool-item" data-tool="merge-pdf">Merge PDF</div>
+                        <div class="tool-item" data-tool="split-pdf">Split PDF</div>
+                        <div class="tool-item" data-tool="reorder-pdf">Reorder PDF Pages</div>
+                        <div class="tool-item" data-tool="extract-pages">Extract Pages</div>
+                        <div class="tool-item" data-tool="delete-pages">Delete Pages</div>
+                        <div class="tool-item" data-tool="rotate-pdf">Rotate PDF</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3><i class="fas fa-exchange-alt"></i> Convert To & From PDF</h3>
+                    <div class="category-tools">
+                        <div class="tool-item" data-tool="pdf-to-word">PDF to Word</div>
+                        <div class="tool-item" data-tool="word-to-pdf">Word to PDF</div>
+                        <div class="tool-item" data-tool="pdf-to-excel">PDF to Excel</div>
+                        <div class="tool-item" data-tool="excel-to-pdf">Excel to PDF</div>
+                        <div class="tool-item" data-tool="pdf-to-ppt">PDF to PowerPoint</div>
+                        <div class="tool-item" data-tool="ppt-to-pdf">PowerPoint to PDF</div>
+                        <div class="tool-item" data-tool="pdf-to-jpg">PDF to JPG</div>
+                        <div class="tool-item" data-tool="jpg-to-pdf">JPG to PDF</div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3><i class="fas fa-tools"></i> Other PDF Tools</h3>
+                    <div class="category-tools">
+                        <div class="tool-item" data-tool="compress-pdf">Compress PDF</div>
+                        <div class="tool-item" data-tool="protect-pdf">Protect PDF</div>
+                        <div class="tool-item" data-tool="unlock-pdf">Unlock PDF</div>
+                        <div class="tool-item" data-tool="repair-pdf">Repair PDF</div>
+                        <div class="tool-item" data-tool="pdf-a">PDF to PDF/A</div>
+                        <div class="tool-item" data-tool="ocr-pdf">OCR PDF</div>
+                        <div class="tool-item" data-tool="watermark">Add Watermark</div>
+                        <div class="tool-item" data-tool="number-pages">Number Pages</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tool Workspace -->
+        <section class="tool-workspace" id="tool-workspace">
+            <div class="workspace-header">
+                <h2 id="current-tool-title">Select a Tool</h2>
+                <p id="current-tool-description">Choose from our wide range of PDF tools above</p>
+            </div>
+            
+            <div class="workspace-content">
+                <div class="file-upload" id="upload-section">
+                    <div class="upload-box" id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3 id="upload-instruction">Select PDF files</h3>
+                        <p id="upload-subtext">or drag and drop files here</p>
+                        <input type="file" id="file-input" accept=".pdf" multiple>
+                        <button class="btn" id="select-files">Select Files</button>
+                    </div>
+                    <div class="file-list" id="file-list">
+                        <!-- Files will be listed here -->
+                    </div>
+                </div>
+                
+                <div class="tool-options" id="tool-options">
+                    <!-- Dynamic options will appear here based on selected tool -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="clear-files">Clear Files</button>
+                    <button class="btn btn-primary" id="process-files" disabled>Process Files</button>
+                </div>
+            </div>
+            
+            <div class="result-section" id="result-section" style="display: none;">
+                <div class="result-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Processing Complete!</h3>
+                </div>
+                <div class="result-content">
+                    <p>Your file has been processed successfully.</p>
+                    <div class="result-actions">
+                        <button class="btn btn-primary" id="download-result">
+                            <i class="fas fa-download"></i> Download File
+                        </button>
+                        <button class="btn btn-secondary" id="start-over">
+                            <i class="fas fa-redo"></i> Start Over
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works-section">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Select Your Tool</h3>
+                        <p>Choose from our wide range of PDF tools to perform the operation you need.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Upload Your Files</h3>
+                        <p>Upload your PDF or other files by dragging and dropping or selecting from your device.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Process & Download</h3>
+                        <p>Click the process button and download your converted or modified file instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is Super PDF Tools free to use?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our basic PDF tools are completely free to use with no hidden charges. We may offer premium features in the future, but the core functionality will remain free.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are my files secure?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We take your privacy seriously. All files are processed securely and automatically deleted from our servers after processing. We don't store or share your files.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What file sizes can I process?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can process files up to 50MB with our free tools. For larger files, consider splitting them into smaller parts or check our premium options.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to install anything?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No installation required! All our tools work directly in your web browser on any device - computer, tablet, or smartphone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Super PDF Tools</h3>
+                <p>Your all-in-one solution for PDF files. Free, fast, and secure online PDF tools.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">All Tools</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Super PDF Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
